@@ -4,7 +4,7 @@
     :class="{ 'list-group-item-success': todoItem.completed }"
     @click="toggleCompleted"
   >
-    <input type="checkbox" class="pointer me-3" :checked="todoItem.completed" />
+    <input type="checkbox" class="pointer me-3" v-model="todoItem.completed" />
     <span class="pointer" :class="[todoItem.completed ? 'todo-done' : '']">
       {{ todoItem.todo }} {{ todoItem.completed ? '(완료)' : '' }}
     </span>
