@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join the Membrship</title>
+
+    <!-- 외부 css code 불러오기 -->
+    <link rel="stylesheet" href="99_PersonalProject.css" />
+  </head>
+  <body>
+    <header>
+      <h1>!!회원가입!!</h1>
+      <p>회원가입을 위해 작성해주세요.</p>
+    </header>
+
+    <section>
+      <!-- 내용 기재 부분 -->
+      <form action="#">
+        <fieldset>
+          <table>
+            <!-- 사용자 정보 입력 받기 -->
+            <tbody>
+              <!-- 이름 입력 -->
+              <tr>
+                <th><label for="Username">이름</label></th>
+                <td>
+                  <input type="text" id="Username" class="Username" required />
+                </td>
+              </tr>
+
+              <!-- 성별 입력 -->
+              <tr>
+                <th><label for="Gender">성별</label></th>
+                <td>
+                  <!-- radio의 경우 해당 그룹 내 아무 radio 버튼이 required 속성을 보유한 경우 필수 제출 처리 -->
+
+                  <input
+                    type="radio"
+                    id="man"
+                    class="Gender"
+                    value="m"
+                    required
+                  />
+                  <label for="man">남성</label>
+                  <input type="radio" id="woman" class="Gender" value="w" />
+                  <label for="woman">여성</label>
+                </td>
+              </tr>
+
+              <!-- ID 입력 -->
+              <tr>
+                <th><label for="UserID">ID</label></th>
+                <td>
+                  <input type="text" id="UserID" class="UserID" required />
+                </td>
+              </tr>
+
+              <!-- PW 입력 -->
+              <tr>
+                <th><label for="UserPassword">Password</label></th>
+                <td>
+                  <input
+                    type="password"
+                    id="UserPassword"
+                    class="UserPassword"
+                    required
+                  />
+                </td>
+              </tr>
+
+              <!-- PW 확인 / JS를 통해 PW와 동일하지 않으면 밑에 일치하지 않습니다. 문구 띄우기 -->
+              <tr>
+                <th>
+                  <label for="UserPasswordChecking">Password Checking</label>
+                </th>
+                <td>
+                  <input
+                    type="password"
+                    id="UserPasswordCheck기ng"
+                    class="UserPasswordChecking"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" class="table_blank"></td>
+              </tr>
+            </tbody>
+
+            <!-- 회원 정보 수집 관련 동의 확인 -->
+            <!-- <tfoot>
+              <tr>
+                <td colspan="2" id="UserAgreeLine">
+                  <p>
+                    개인정보보호정책 혁신24 이용을 위해 수집한 귀하의 정보를
+                    관리함에 있어서 「개인정보보호법」에서 규정하고 있는 책임과
+                    의무를 준수하고 제공자가 동의한 내용 외 다른 목적으로는
+                    활용하지 않음을 알려드립니다. - 개인정보 수집이용 목적 :
+                    회원 가입의사 확인, 회원제 서비스 제공에 따른 본인
+                    식별·인증, 회원자격 유지·관리, 서비스 부정이용 방지, 각종
+                    고지·통지, 고충처리 목적 - 수집하려는 개인정보 항목 *
+                    정부혁신담당공직자 회원의 경우 - 필수 : 아이디(이메일),
+                    성명, 성별, 휴대전화번호, 생년월일, 소속기관 - 선택 :
+                    활동명, 거주지역 * 국민회원 일반가입의 경우 - 필수 :
+                    아이디(이메일), 성명, 성별, 휴대전화번호, 생년월일 - 선택 :
+                    활동명, 거주지역, 직업 * 국민회원 SNS계정 인증가입의 경우 -
+                    필수 : 아이디, 성명, 성별(네이버 인증시에 한함) - 선택 :
+                    성별(카카오 및 페이스북 인증시), 휴대전화번호, 생년월일,
+                    활동명, 거주지역, 직업 - 개인정보 보유 및 이용기간 :
+                    개인정보 및 초상권 수집, 이용목적이 달성된 후에는 지체 없이
+                    파기합니다. 개인정보 보유 및 이용기간은 회원 탈퇴
+                    시까지입니다. - 이용자는 혁신24에서 수집하는 개인정보 제공에
+                    대한 동의를 거부할 권리가 있습니다. 다만, 혁신24 이용에
+                    필요한 필수 항목의 제공에 대한 동의를 거부하시면 위의
+                    서비스가 제한될 수 있습니다.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <input
+                    type="checkbox"
+                    id="UserAgree"
+                    class="UserAgree"
+                    required
+                  />
+                  <label for="UserAgree">동의합니다.</label>
+                </td>
+              </tr>
+            </tfoot> -->
+          </table>
+          <div class="UserAgreeLine">
+            <p>
+              개인정보보호정책 혁신24 이용을 위해 수집한 귀하의 정보를 관리함에
+              있어서 「개인정보보호법」에서 규정하고 있는 책임과 의무를 준수하고
+              제공자가 동의한 내용 외 다른 목적으로는 활용하지 않음을
+              알려드립니다. - 개인정보 수집이용 목적 : 회원 가입의사 확인,
+              회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리,
+              서비스 부정이용 방지, 각종 고지·통지, 고충처리 목적 - 수집하려는
+              개인정보 항목 * 정부혁신담당공직자 회원의 경우 - 필수 :
+              아이디(이메일), 성명, 성별, 휴대전화번호, 생년월일, 소속기관 -
+              선택 : 활동명, 거주지역 * 국민회원 일반가입의 경우 - 필수 :
+              아이디(이메일), 성명, 성별, 휴대전화번호, 생년월일 - 선택 :
+              활동명, 거주지역, 직업 * 국민회원 SNS계정 인증가입의 경우 - 필수 :
+              아이디, 성명, 성별(네이버 인증시에 한함) - 선택 : 성별(카카오 및
+              페이스북 인증시), 휴대전화번호, 생년월일, 활동명, 거주지역, 직업 -
+              개인정보 보유 및 이용기간 : 개인정보 및 초상권 수집, 이용목적이
+              달성된 후에는 지체 없이 파기합니다. 개인정보 보유 및 이용기간은
+              회원 탈퇴 시까지입니다. - 이용자는 혁신24에서 수집하는 개인정보
+              제공에 대한 동의를 거부할 권리가 있습니다. 다만, 혁신24 이용에
+              필요한 필수 항목의 제공에 대한 동의를 거부하시면 위의 서비스가
+              제한될 수 있습니다.
+            </p>
+          </div>
+          <div class="UserAgree">
+            <input type="checkbox" id="UserAgree" class="UserAgree" required />
+            <label for="UserAgree">동의합니다.</label>
+          </div>
+        </fieldset>
+        <br />
+        <div class="button">
+          <input type="submit" value="제출" />
+          <input type="reset" value="다시 쓰기" />
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
