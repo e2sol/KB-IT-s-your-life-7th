@@ -1,6 +1,6 @@
 <template>
-  <div class="input-form card card-body mt-3">
-    <div class="row g-3" @keyup.enter="addContact">
+  <div class="input-form card card-body mt-3" @keyup.enter="addContact">
+    <div class="row g-3">
       <div class="col-md-2">
         <input
           type="text"
@@ -50,7 +50,6 @@
 <script>
 export default {
   name: 'ContactForm',
-
   data() {
     return {
       contact: { name: '', gender: '', age: '', email: '', github: '' },
@@ -73,6 +72,8 @@ export default {
       // console.log(this.contact);
 
       this.$emit('add-contact', this.contact);
+
+      this.contact = { name: '', gender: '', age: '', email: '', github: '' };
     },
   },
 };
