@@ -12,10 +12,10 @@
       type="checkbox"
       class="pointer me-3"
       :checked="todoItem.completed"
-      @click.stop="toggleCompleted"
+      @click="toggleCompleted"
     />
-    <!-- checkbox 클릭 시 자동으로 change 이벤트가 발생하는데, 이를 .stop으로 막지 않으면, 
-         change를 통해 모양 변경 및 true/false값으로 인한 상태 변경이 겹쳐 최종적으로 모양이 변하지 않음 -->
+    <!-- checkbox 클릭 시 부모 태그(li)의 클릭 이벤트가 발생(이벤트 버블링)
+         이를 막아주어야 원하는대로 input 태그의 이벤트만 발생함  -->
 
     <span class="pointer" :class="[todoItem.completed ? 'todo-done' : '']">
       {{ todoItem.todo }} {{ todoItem.completed ? '(완료)' : '' }}

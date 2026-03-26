@@ -36,6 +36,10 @@ export default {
     };
   },
   methods: {
+    /*
+     * 할일 추가
+     * @param newTodo - 새로 추가할 할 일 내용
+     */
     addTodo(newTodo) {
       this.todoList.push({
         id: new Date().getTime(),
