@@ -25,8 +25,14 @@
 <script>
 export default {
   name: 'TodoCount',
-  props: ['todoList'],
+  props: {
+    todoList: {
+      type: Array,
+      required: true,
+    },
+  },
 
+  // todoList 배열값이 변화할 때마다 자동으로 재계산되어 반환
   computed: {
     completedTodo() {
       return this.todoList.filter((item) => item.completed).length;

@@ -16,7 +16,12 @@
 <script>
 export default {
   name: 'TodoListItem',
-  props: ['todoItem'],
+  props: {
+    todoItem: {
+      type: Object,
+      required: true,
+    },
+  },
   methods: {
     toggleCompleted() {
       this.$emit('toggle-completed', this.todoItem.id);
