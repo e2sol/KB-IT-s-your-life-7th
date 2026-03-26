@@ -5,6 +5,7 @@
         <input
           type="text"
           class="form-control"
+          placeholder="할 일을 여기에 입력!"
           v-model="newTodo"
           @keyup.enter="addTodo"
         />
@@ -23,6 +24,7 @@ export default {
       newTodo: '',
     };
   },
+  emits: ['add-todo'],
   methods: {
     addTodo() {
       if (this.newTodo.length >= 3) {

@@ -9,6 +9,7 @@
           @toggle-completed="$emit('toggle-completed', $event)"
           @delete-todo="$emit('delete-todo', $event)"
         />
+        <!-- 이벤트 방출 시 전달되는 데이터는 $event로 수신 가능 -->
       </ul>
     </div>
   </div>
@@ -27,6 +28,7 @@ export default {
       required: true,
     },
   },
+  emits: ['toggle-completed', 'delete-todo'],
   computed: {
     sortTodoList() {
       // computed 속성 중 false 값을 가진 객체들만 새로운 배열로 필터링

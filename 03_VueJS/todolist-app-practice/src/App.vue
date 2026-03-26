@@ -44,8 +44,14 @@ export default {
       });
     },
     toggleCompleted(itemId) {
-      this.todoList.find((item) => itemId === item.id).completed =
-        !this.todoList.find((item) => itemId === item.id).completed;
+      // 배열.findIndex((item) => 조건) : 조건에 맞는 첫 번째 요소의 인덱스를 반환, 없으면 -1 반환
+      let index = this.todoList.findIndex((item) => itemId === item.id);
+      this.todoList[index].completed = !this.todoList[index].completed;
+      // == (동등 비교) : 값만 비교 ex. 1 == '1' -> true
+      // === (일치 비교) : 값과 타입 모두 비교 ex. 1 === '1' -> false
+
+      // this.todoList.find((item) => itemId === item.id).completed =
+      //   !this.todoList.find((item) => itemId === item.id).completed;
       // console.log(this.todoList.find((item) => itemId === item.id).completed);
     },
     deleteTodo(itemId) {
