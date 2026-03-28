@@ -7,6 +7,7 @@
           :key="todoItem.id"
           :todoItem="todoItem"
           @toggle-completed="emit('toggle-completed', $event)"
+          @complete-rewrite="emit('complete-rewrite', $event)"
           @delete-todo="emit('delete-todo', $event)"
         />
         <!-- 이벤트 방출 시 전달되는 데이터는 $event로 수신 가능 -->
@@ -24,22 +25,48 @@ const props = defineProps({
     required: true,
   },
 });
-const emit = defineEmits(['toggle-completed', 'delete-todo']);
+const emit = defineEmits([
+  'toggle-completed',
+  'delete-todo',
+  'complete-rewrite',
+]);
+
+// 가나다 순으로 정렬
+const korSort = (arrayList) => {
+  return arrayList.sort((a, b) => {
+    return a.todo < b.todo ? -1 : a.todo > b.todo ? 1 : 0;
+  });
+};
+
+const importanceSort = (arrayList) => {
+  let highList = arrayList.filter((item) => item.importance === 'high');
+  highList = korSort(highList);
+
+  let middleList = arrayList.filter((item) => item.importance === 'middle');
+  middleList = korSort(middleList);
+
+  let lowList = arrayList.filter((item) => item.importance === 'low');
+  lowList = korSort(lowList);
+
+  let sortedList1 = middleList.concat(lowList);
+  let sortedList2 = highList.concat(sortedList1);
+
+  return sortedList2;
+};
+
 const sortTodoList = computed(() => {
   // console.log(props.todoList);
 
   let falseTodoList = props.todoList.filter((item) => item.completed === false);
-  // false 값을 가진 객체들을 오름차순으로 정렬
-  falseTodoList.sort((a, b) => {
-    return a.todo < b.todo ? -1 : a.todo > b.todo ? 1 : 0;
-  });
+
+  // false 값을 가진 객체들을 중요도 순으로, 그 안에서 가나다순으로 정렬
+  falseTodoList = importanceSort(falseTodoList);
 
   // computed 속성 중 true 값을 가진 객체들만 새로운 배열로 필터링
   let trueTodoList = props.todoList.filter((item) => item.completed);
-  // true 값을 가진 객체들을 오름차순으로 정렬
-  trueTodoList.sort((a, b) => {
-    return a.todo < b.todo ? -1 : a.todo > b.todo ? 1 : 0;
-  });
+
+  // true 값을 가진 객체들을 가나다순으로 정렬, 중요도 무시
+  trueTodoList = korSort(trueTodoList);
 
   // 각 배열을 합쳐서 반환
   let sortedTodoList = falseTodoList.concat(trueTodoList);
