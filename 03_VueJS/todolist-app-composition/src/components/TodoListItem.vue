@@ -60,8 +60,10 @@
       <TodoRewrite
         :isRewrite="isRewrite"
         :todoId="todoItem.id"
+        :todo="todoItem.todo"
         :importance="todoItem.importance"
         @complete-rewrite="completeRewrite"
+        @rewrite-todo="rewriteTodo"
       />
     </div>
   </li>
@@ -86,16 +88,16 @@ const toggleCompleted = () => {
   emit('toggle-completed', props.todoItem.id);
 };
 
-let isRewrite = ref(0);
+let isRewrite = ref(false);
 const rewriteTodo = () => {
-  isRewrite.value = 1;
+  isRewrite.value = !isRewrite.value;
   console.log(`수정버튼 클릭 ${props.todoItem.id}`);
 };
 
 const completeRewrite = ($event) => {
-  isRewrite.value = 0;
+  isRewrite.value = false;
   emit('complete-rewrite', $event);
-  console.log(`수정완료 전달 중 ${$event}`);
+  // console.log(`수정완료 전달 중 ${$event}`);
 };
 
 const deleteTodo = () => {

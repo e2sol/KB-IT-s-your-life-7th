@@ -6,7 +6,7 @@
           type="text"
           class="form-control"
           placeholder="할 일을 여기에 입력!"
-          v-model="newTodo"
+          v-model.trim="newTodo"
           @keyup.enter="addTodo"
         />
       </div>
