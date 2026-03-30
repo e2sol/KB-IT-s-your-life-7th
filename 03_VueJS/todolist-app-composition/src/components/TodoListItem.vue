@@ -91,7 +91,7 @@ const toggleCompleted = () => {
 let isRewrite = ref(false);
 const rewriteTodo = () => {
   isRewrite.value = !isRewrite.value;
-  console.log(`수정버튼 클릭 ${props.todoItem.id}`);
+  // console.log(`수정버튼 클릭 ${props.todoItem.id}`);
 };
 
 const completeRewrite = ($event) => {
