@@ -1,5 +1,7 @@
-<template lang="">
-  <div>기본페이지</div>
+<template>
+  <div class="mt-3 ms-2">
+    <h1>첫 페이지</h1>
+  </div>
 </template>
 <script>
 export default {};

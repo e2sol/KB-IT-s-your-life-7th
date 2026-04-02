@@ -1,7 +1,19 @@
-<template lang="">
-  <div>남성의류</div>
+<template>
+  <div class="mt-3 ms-2">
+    <h2><i :class="['fas', menu.icon]"></i> {{ menu.title }}</h2>
+  </div>
 </template>
-<script>
-export default {};
+<script setup>
+import { useRoute } from 'vue-router';
+import menus from '@/config/index.js';
+
+const currentRoute = useRoute();
+const url = currentRoute.path.toString();
+// console.log(currentRoute.path);
+
+// console.log(url);
+// console.log(menus.menus);
+
+const menu = menus.menus.find((m) => m.url === url);
+// console.log(menu);
 </script>
-<style lang=""></style>
