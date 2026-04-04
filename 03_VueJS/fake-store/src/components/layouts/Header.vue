@@ -10,5 +10,6 @@ import info from '@/config/index.js';
 <style>
 .bg-img {
   background-image: url('@/assets/backgroundImg.png');
+  background-size: cover;
 }
 </style>
