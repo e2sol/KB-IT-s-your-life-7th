@@ -2,7 +2,7 @@
 import { useRouter } from 'vue-router';
 import { inject } from 'vue';
 defineProps({
-  todoItem: { Type: Object, required: true },
+  todoItem: { type: Object, required: true },
 });
 const router = useRouter();
 const { deleteTodo, toggleDone } = inject('actions');
