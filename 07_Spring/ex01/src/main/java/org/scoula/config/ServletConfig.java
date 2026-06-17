@@ -1,9 +1,6 @@
 package org.scoula.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.multipart.MultipartResolver;
-import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
@@ -12,9 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
-@ComponentScan(basePackages = {
-        "org.scoula.exception",
-        "org.scoula.controller"})
+@ComponentScan(basePackages = {"org.scoula.controller"})
 public class ServletConfig implements WebMvcConfigurer {
     // 스프링 내부에서 사용하는 서블릿(or JSP)와 관련된 설정을 하는 파일
 
@@ -36,12 +31,5 @@ public class ServletConfig implements WebMvcConfigurer {
         bean.setSuffix(".jsp");
 
         registry.viewResolver(bean);
-    }
-
-    // Servlet 3.0 파일 이상 업로드 사용시
-    @Bean // 메서드 호출 시 싱글톤 빈을 생성
-    public MultipartResolver multipartResolver() {
-        StandardServletMultipartResolver resolver = new StandardServletMultipartResolver();
-        return resolver;
     }
 }
